@@ -37,20 +37,13 @@ function playRound() {
 
     function playerPoint() {
         playerScore++;
-    
-        if (computerScore > 0) {
-            computerScore = computerScore - 1;
-        }
+
     
         return 'You win 1 point! ' + playerSelection + ' beats ' + computerSelection + '. You have ' + playerScore + ' points!';
     }
     
     function computerPoint() {
         computerScore++;
-    
-        if (playerScore > 0) {
-            playerScore = playerScore - 1;
-        }
     
         return 'You lose! ' + computerSelection + ' beats ' + playerSelection + '. Computer wins 1 point, and has ' + computerScore + ' points.';
     } 
@@ -98,16 +91,10 @@ function game() {
 
     /* 2 player choices (computer & player) */
 
-
-   console.log(playRound());
-
-   console.log(playRound());
-
-   console.log(playRound());
-
-   console.log(playRound());
-
-   console.log(playRound());
+    for (let r = 0; r <5; r++ ) {
+        let current = r + 1;
+        console.log('Round ' + current + ': ' + playRound());
+    }
 
 
    if (computerScore > playerScore) {
