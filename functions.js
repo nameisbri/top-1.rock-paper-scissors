@@ -17,6 +17,9 @@ Play a round
 
 function playRound() {
 
+
+    /* 2 player choices (computer & player) */
+
     let playerSelection;
     let computerSelection;  
 
@@ -39,13 +42,17 @@ function playRound() {
         playerScore++;
 
     
-        return 'You win 1 point! ' + playerSelection + ' beats ' + computerSelection + '. You have ' + playerScore + ' points!';
+        return 'You win 1 point! ' + playerSelection + 
+        ' beats ' + computerSelection + 
+        '. You have ' + playerScore + ' points!';
     }
     
     function computerPoint() {
         computerScore++;
     
-        return 'You lose! ' + computerSelection + ' beats ' + playerSelection + '. Computer wins 1 point, and has ' + computerScore + ' points.';
+        return 'You lose! ' + computerSelection + 
+        ' beats ' + playerSelection + 
+        '. Computer wins 1 point, and has ' + computerScore + ' points.';
     } 
 
     playerSelection.toLowerCase;
@@ -88,8 +95,6 @@ function game() {
     playerScore = 0;
     computerScore = 0;
 
-
-    /* 2 player choices (computer & player) */
 
     for (let r = 0; r <5; r++ ) {
         let current = r + 1;
