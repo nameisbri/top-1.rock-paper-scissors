@@ -61,25 +61,17 @@ function playRound() {
         return "It's a tie, play again."  
     } else if (playerSelection == "rock" && computerSelection == "scissors"){
         return playerPoint(playerScore, computerScore);
-      //  return 'You Win! Rock beats Scissors';
     } else if (playerSelection == "rock" && computerSelection == "paper") {
         return computerPoint(playerScore, computerScore);
-     //   return 'You Lose! Paper beats Rock';
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
         return computerPoint(playerScore, computerScore);
-     //   return 'You Lose! Scissors beats Paper';
     } else if (playerSelection == "paper" && computerSelection == "rock") {
         return playerPoint(playerScore, computerScore);
-     //   return 'You Win! Paper beats Rock';
     } else if (playerSelection == "scissors" && computerSelection == "rock") {
         return computerPoint(playerScore, computerScore);
-    //    return 'You Lose! Rocks beats Scissors';
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
         return playerPoint(playerScore, computerScore);
-    //    return 'You Win! Scissors beats Paper';
     }
-
-
 }
 
 
