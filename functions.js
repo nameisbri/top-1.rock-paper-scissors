@@ -5,23 +5,23 @@ Get the computers choice (randomly return rock, paper or scissors) */
 let playerScore;
 let computerScore;
 
+let playerSelection;
 
+playerSelection = '';
 
+const btns = document.querySelectorAll('button');
 
-
-/* 
-Play a round 
-*/
-
+playerScore = 0;
+computerScore = 0;
 
 
 function playRound() {
 
 
-    /* 2 player choices (computer & player) */
+    // 2 player choices (computer & player) 
 
-    let playerSelection;
     let computerSelection;  
+
 
     function getComputerChoice() {
         var random = Math.floor(Math.random() * 3) + 1; 
@@ -35,29 +35,37 @@ function playRound() {
     }
     
 
-    playerSelection = prompt("What's your choice?");
+
+   // playerSelection = prompt("What's your choice?"); // replace with clicked button ID 
+        // search the DOM for a button click
+        // return the ID of the button clicked
+
     computerSelection = getComputerChoice(); 
+
+    console.log('computer:' + computerSelection);
+    console.log('player:' + playerSelection)
 
     function playerPoint() {
         playerScore++;
 
     
-        return 'You win 1 point! ' + playerSelection + 
+        console.log('You win 1 point! ' + playerSelection + 
         ' beats ' + computerSelection + 
-        '. You have ' + playerScore + ' points!';
+        '. Score: Player ' +  playerScore + ' / Computer ' + computerScore) ;
     }
     
     function computerPoint() {
         computerScore++;
     
-        return 'You lose! ' + computerSelection + 
+        console.log('You lose! ' + computerSelection + 
         ' beats ' + playerSelection + 
-        '. Computer wins 1 point, and has ' + computerScore + ' points.';
+        '. Computer wins 1 point. Score: Player ' +  playerScore + ' / Computer ' + computerScore);
     } 
 
     playerSelection.toLowerCase;
 
     if (playerSelection == computerSelection) {
+        console.log('Its a tie, play again.');
         return "It's a tie, play again."  
     } else if (playerSelection == "rock" && computerSelection == "scissors"){
         return playerPoint(playerScore, computerScore);
@@ -79,40 +87,15 @@ function playRound() {
     //    return 'You Win! Scissors beats Paper';
     }
 
-
-}
-
+} 
 
 
 
-/* 
-Game: 5 rounds
-Winner is most points at the end of 5 rounds
-*/
-
-function game() {
-
-    playerScore = 0;
-    computerScore = 0;
-
-
-    for (let r = 0; r <5; r++ ) {
-        let current = r + 1;
-        console.log('Round ' + current + ': ' + playRound());
-    }
-
-
-   if (computerScore > playerScore) {
-    console.log('You lose! Computer: ' + computerScore + ' / You: ' + playerScore)
-   } else if (playerScore > computerScore ) {
-    console.log('You win! You: ' + playerScore + ' / Computer: ' + computerScore )
-   } else if (playerScore == computerScore) {
-    console.log('Tie! You: ' + playerScore + ' / Computer: ' + computerScore)
-   }
-}
-
-
-
-game();
+btns.forEach((button) => {
+    button.addEventListener('click', () => {
+        playerSelection = button.id;
+        playRound(playerSelection);
+    });
+  });
 
 
